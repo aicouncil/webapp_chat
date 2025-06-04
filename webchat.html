@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Website with Chat Assistant</title>
+<style>
+  /* Chat Icon Button */
+  #chat-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #063b39; /* AiCouncil dark green */
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    color: white;
+    font-size: 30px;
+  }
+
+  /* Chat Popup Container */
+  #chat-popup {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 400px;
+    height: 600px;
+    border: 2px solid #3e7c7b; /* AiCouncil green */
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    background: white;
+    display: none;
+    z-index: 1001;
+  }
+
+  /* Close button */
+  #chat-popup-header {
+    background: #063b39;
+    color: white;
+    padding: 8px 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  #close-btn {
+    cursor: pointer;
+    font-size: 20px;
+  }
+
+  iframe {
+    width: 100%;
+    height: calc(100% - 40px);
+    border: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- Your website content here -->
+<h1>Welcome to AiCouncil Website</h1>
+<p>Explore career-focused AI training with our chatbot assistant in the corner!</p>
+
+<!-- Chat Icon -->
+<div id="chat-icon" title="Chat with AiCouncil">💬</div>
+
+<!-- Chat Popup -->
+<div id="chat-popup">
+  <div id="chat-popup-header">
+    Chat with AiCouncil
+    <span id="close-btn">&times;</span>
+  </div>
+  <iframe src="https://your-app.onrender.com" title="AiCouncil Chatbot"></iframe>
+</div>
+
+<script>
+  const chatIcon = document.getElementById("chat-icon");
+  const chatPopup = document.getElementById("chat-popup");
+  const closeBtn = document.getElementById("close-btn");
+
+  chatIcon.addEventListener("click", () => {
+    chatPopup.style.display = "block";
+    chatIcon.style.display = "none";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    chatPopup.style.display = "none";
+    chatIcon.style.display = "flex";
+  });
+</script>
+
+</body>
+</html>
